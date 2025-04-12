@@ -37,6 +37,33 @@ tasks.test {
     }
 }
 
+// configuring java version
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+// alternate way
+//kotlin {
+//    jvmToolchain(11)
+//}
+
+
+// extension level
+//kotlin {
+//    compilerOptions {
+//        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11
+//    }
+//}
+
+// or
+
+// task level
+// overriding Compile kotlin task
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    compilerOptions.jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11)
+}
+
 spotless {
     kotlin {
         target("test/com/igorwojda/**/*.kt")
