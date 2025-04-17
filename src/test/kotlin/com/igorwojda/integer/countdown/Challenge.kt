@@ -4,11 +4,20 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun countDown(n: Int): List<Int> {
+//    return countDownUsingForInLoop(n)
+    return countDownUsingRange(n)
+}
+
+private fun countDownUsingForInLoop(n: Int): MutableList<Int> {
     var list = mutableListOf<Int>()
-    for( i in n downTo 0) {
+    for (i in n downTo 0) {
         list.add(i)
     }
     return list
+}
+
+private fun countDownUsingRange(n: Int): List<Int> {
+    return (n downTo 0).toList()
 }
 
 private class Test {

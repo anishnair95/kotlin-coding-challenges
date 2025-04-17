@@ -8,6 +8,7 @@ private fun addUpTo(n: Int): Int {
     return addUptoUsingFormula(n)
 //    return addUptoUsingOperator(n)
 //    return addUptoUsingForEach(n)
+    return addUptoUsingFoldOperator(n)
 }
 
 private fun addUptoUsingFormula(n: Int): Int {
@@ -29,6 +30,9 @@ private fun addUptoUsingForEach(n: Int): Int {
 }
 
 // using fold operator
+private fun addUptoUsingFoldOperator(n: Int): Int {
+    return (0..n).fold(0) { accumulated, i -> accumulated + i }
+}
 
 
 private class Test {
