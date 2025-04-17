@@ -3,10 +3,33 @@ package com.igorwojda.integer.addupto
 import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
+// O(1)
 private fun addUpTo(n: Int): Int {
+    return addUptoUsingFormula(n)
+//    return addUptoUsingOperator(n)
+//    return addUptoUsingForEach(n)
+}
+
+private fun addUptoUsingFormula(n: Int): Int {
     var sum = ((n + 1) * n) / 2
     return sum
 }
+
+private fun addUptoUsingOperator(n: Int): Int {
+    return (0..n).sum()
+}
+
+// O(n)
+private fun addUptoUsingForEach(n: Int): Int {
+    var sum = 0
+    (0..n).forEach {
+        sum += it
+    }
+    return sum
+}
+
+// using fold operator
+
 
 private class Test {
     @Test
@@ -22,5 +45,10 @@ private class Test {
     @Test
     fun `add up to 10`() {
         addUpTo(10) shouldBeEqualTo 55
+    }
+
+    @Test
+    fun `trial`() {
+        addUptoUsingOperator(2)
     }
 }
